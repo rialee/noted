@@ -13,12 +13,13 @@ app.use(express.json());
 
 // ROUTES
 // ===========================================================
-// require routes from file
+// require routes from file (passing the app as argument into function)
 require("./controller/apiRoutes")(app)
+require("./controller/htmlRoutes")(app)
 
-
+// 
 // LISTENER
 // ===========================================================
 app.listen(PORT, function() {
-  console.log("http://localhost: " + PORT);
+  console.log("app listening at http://localhost: " + PORT);
 });
