@@ -20,6 +20,6 @@ require("./controller/htmlRoutes")(app)
 // 
 // LISTENER
 // ===========================================================
-app.listen(PORT, function() {
+app.listen(PORT, () => {
   console.log("app listening at http://localhost: " + PORT);
 });

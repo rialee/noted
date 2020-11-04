@@ -15,8 +15,11 @@ module.exports = function (app){
 
         console.log(req.body)
 
-    })
+    });
 
     // delete
+    app.delete("/notes/:id", (req, res) => {
+        
+    })
    
 }
