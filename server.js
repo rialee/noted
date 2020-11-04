@@ -10,6 +10,7 @@ var PORT = 3000;
 // express app to handle data parsing
 app.use(express.urlencoded ({extended : true}));
 app.use(express.json());
+app.use(express.static("view"))
 
 // ROUTES
 // ===========================================================
