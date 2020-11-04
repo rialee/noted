@@ -1,10 +1,9 @@
 // require data 
-let notesData = require("../model/db.js");
-const fs = require ("fs")
+let notesData = require("../model/notesData");
 
 
 // export api routes
-module.exports = function (app, fs){
+module.exports = function (app){
 
      // home route "/notes" all the notes data
      app.get("/api/notes", (req, res) => {
@@ -19,23 +18,22 @@ module.exports = function (app, fs){
         newNote.id = id;
 
         notesData.push(newNote);
-
         res.json(newNote);
-        fs.writeFileSync("./model/db.js", newNote)
 
-        console.log(notesData);
+        console.log(newNote);
     
     });
 
     // delete
     app.delete("/api/notes/:id", (req, res) => {
-        let newNotesData = notesData
+        
         let noteId = req.params.id
         
-        newNotesData = newNotesData.filter(curr => {return curr.id != noteId})
+        notesData = notesData.filter(curr => {return curr.id != noteId})
     
         console.log("clicked")
-        console.log(newNotesData)
+        console.log(notesData)
+        res.json(notesData)
 
     });
    
