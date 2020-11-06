@@ -10,6 +10,8 @@ module.exports = function (app) {
         try {
             await res.json(notesData)
         }
+        
+        // catch error
         catch (e) { throw e };
     });
 
@@ -23,6 +25,8 @@ module.exports = function (app) {
         try {
             await notesData.push(newNote);
         }
+
+        // catch error
         catch (e) { throw e };
 
         res.json(newNote);
@@ -36,6 +40,8 @@ module.exports = function (app) {
             let noteId = req.params.id
             notesData = notesData.filter(curr => { return curr.id != noteId })
         }
+
+        // catch error
         catch (e) { throw e };
 
         console.log("clicked")
