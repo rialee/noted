@@ -1,25 +1,31 @@
 // require dependencies
-const fs = require ("fs")
-const path = require ("path")
+const fs = require("fs")
+const path = require("path")
 
 // export html routes
-module.exports = function (app){
+module.exports = function (app) {
 
-        // home route "/"
-        app.get("/", (req, res) => {
+    // home route "/"
+    app.get("/", async (req, res) => {
+        try {
+            await res.sendFile(path.join(__dirname, "../view/index.html"));
+        }
+        catch (e) { throw e };
+    });
 
-            res.sendFile(path.join(__dirname, "../view/index.html"));
-        });
+    // note route "/notes"
+    app.get("/notes", async (req, res) => {
+        try {
+            await res.sendFile(path.join(__dirname, "../view/notes.html"));
+        }
+        catch (e) { throw e };
+    });
 
-        // note route "/notes"
-        app.get("/notes", (req, res) => {
-            
-            res.sendFile(path.join(__dirname, "../view/notes.html"));
-        });
-
-        // default route
-        app.get("*", function(req, res) {
-            res.sendFile(path.join(__dirname, "../view/index.html"));
-        });
-
+    // default route
+    app.get("*", async (req, res) => {
+        try {
+            await res.sendFile(path.join(__dirname, "../view/index.html"));
+        }
+        catch (e) { throw e };
+    });
 }

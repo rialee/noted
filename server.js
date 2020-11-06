@@ -15,8 +15,8 @@ app.use(express.static("view"))
 // ROUTES
 // ===========================================================
 // require routes from file (passing the app as argument into function)
-require("./controller/apiRoutes")(app)
-require("./controller/htmlRoutes")(app)
+require("./controller/apiRoutes")(app);
+require("./controller/htmlRoutes")(app);
 
 // 
 // LISTENER
