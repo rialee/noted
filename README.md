@@ -18,6 +18,9 @@ This application uses express backend server to retreive and store note data.
 ### Project Repository Link:
 https://github.com/rialee/noted
 
+### Project Deployed Link:
+https://noted-note-taker.herokuapp.com/
+
 Project Screenshots in images folder.
 
 ### License
