@@ -10,7 +10,7 @@ module.exports = function (app) {
         try {
             await res.json(notesData)
         }
-        
+
         // catch error
         catch (e) { throw e };
     });
@@ -34,15 +34,14 @@ module.exports = function (app) {
     });
 
     // delete
-    app.delete("/api/notes/:id", async (req, res) => {
-        
-        try {
-            let noteId = req.params.id
+    app.delete("/api/notes/:id", (req, res) => {
+        let noteId = req.params.id
+        if(noteId){
             notesData = notesData.filter(curr => { return curr.id != noteId })
-        }
-
-        // catch error
-        catch (e) { throw e };
+        } 
+        else {
+            throw err
+        };
 
         console.log("clicked")
         console.log(notesData)
